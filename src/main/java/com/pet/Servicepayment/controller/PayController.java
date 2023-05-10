@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PayController {
-    private PaymentService paymentService;
+    private final PaymentService paymentService;
 
     @Autowired
     public PayController(PaymentService paymentService) {
@@ -25,5 +25,11 @@ public class PayController {
     @ResponseBody
     public Card createCard(@RequestBody CardRequestDTO requestDTO) {
         return paymentService.create(requestDTO);
+    }
+
+    @GetMapping(value = "/api/v1/card_template/{id}")
+    @ResponseBody
+    public Card getCardById(@PathVariable int id) {
+        return paymentService.get(id);
     }
 }
