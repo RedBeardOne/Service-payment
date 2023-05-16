@@ -6,12 +6,9 @@ import com.pet.Servicepayment.model.Tariff;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.OffsetDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardMapperTest {
-
 
     private CardMapper mapper;
 
