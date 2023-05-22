@@ -34,10 +34,10 @@ public class PayController {
         return paymentService.get(id);
     }
 
-    @PatchMapping (value = "/api/v1/card_template/{id}")
+    @PatchMapping(value = "/api/v1/card_template/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Card updateCardById(@PathVariable int id,
-                               @RequestBody CardRequestDTO cardRequestDTO) {
-        return paymentService.update(id, cardRequestDTO);
+    public void update(@PathVariable int id,
+                       @RequestBody CardRequestDTO cardRequestDTO) {
+        paymentService.update(id, cardRequestDTO);
     }
 }

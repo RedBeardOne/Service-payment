@@ -8,8 +8,6 @@ import com.pet.Servicepayment.model.Tariff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.OffsetDateTime;
-
 @Service
 public class PaymentService {
 
@@ -34,13 +32,7 @@ public class PaymentService {
                 20);
     }
 
-    public Card update(int id, CardRequestDTO requestDTO) {
-        return new Card(
-                "Unabolek",
-                false,
-                new Tariff(0.0, 0.1, 20.0),
-                "2023-05-16T12:34:50.487412+03:00",
-                "2023-05-16T12:34:50.487412+03:00",
-                99);
+    public void update(int id, CardRequestDTO requestDTO) {
+        System.out.println("Do nothing");
     }
 }

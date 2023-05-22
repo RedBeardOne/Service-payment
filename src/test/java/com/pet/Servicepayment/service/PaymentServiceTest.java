@@ -56,7 +56,7 @@ class PaymentServiceTest {
 
     @Test
     void shouldReturnCardById() {
-        Card card =new Card(
+        Card card = new Card(
                 "Bolek",
                 true,
                 new Tariff(21.0, 0.8, 50.0),
@@ -67,5 +67,20 @@ class PaymentServiceTest {
         Card cardAfterCall = paymentService.get(1);
 
         assertEquals(card, cardAfterCall);
+    }
+
+    @Test
+    void shouldUpdateCardById() {
+        CardRequestDTO cardRequestDTO = new CardRequestDTO("Unabolek",
+                false,
+                new Tariff(0.0, 0.1, 20.0));
+        Card card = new Card("Unabolek",
+                false,
+                new Tariff(0.0, 0.1, 20.0),
+                "2023-05-16T12:34:50.487412+03:00",
+                "2023-05-16T12:34:50.487412+03:00",
+                99);
+
+        paymentService.update(1, cardRequestDTO);
     }
 }
