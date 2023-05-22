@@ -12,8 +12,13 @@ import java.time.OffsetDateTime;
 
 @Service
 public class PaymentService {
-    @Autowired
+
     private CardMapper mapper;
+
+    @Autowired
+    public PaymentService(CardMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public Card create(CardRequestDTO requestDTO) {
         return mapper.toCard(requestDTO);
@@ -24,8 +29,8 @@ public class PaymentService {
                 "Bolek",
                 true,
                 new Tariff(21.0, 0.8, 50.0),
-                OffsetDateTime.now().toString(),
-                OffsetDateTime.now().toString(),
+                "2023-05-16T12:34:50.487412+03:00",
+                "2023-05-16T12:34:50.487412+03:00",
                 20);
     }
 
@@ -34,8 +39,8 @@ public class PaymentService {
                 "Unabolek",
                 false,
                 new Tariff(0.0, 0.1, 20.0),
-                OffsetDateTime.now().toString(),
-                OffsetDateTime.now().toString(),
+                "2023-05-16T12:34:50.487412+03:00",
+                "2023-05-16T12:34:50.487412+03:00",
                 99);
     }
 }

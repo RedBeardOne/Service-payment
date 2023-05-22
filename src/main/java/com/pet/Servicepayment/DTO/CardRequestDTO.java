@@ -1,9 +1,11 @@
 package com.pet.Servicepayment.DTO;
 
 import com.pet.Servicepayment.model.Tariff;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
+@Data
+@AllArgsConstructor
 public class CardRequestDTO {
     private String name;
     private boolean active;
