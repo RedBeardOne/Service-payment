@@ -15,11 +15,11 @@ public class PaymentService {
     @Autowired
     private CardMapper mapper;
 
-    public Card create (CardRequestDTO  requestDTO){
+    public Card create(CardRequestDTO requestDTO) {
         return mapper.toCard(requestDTO);
     }
 
-    public Card get (int id){
+    public Card get(int id) {
         return new Card(
                 "Bolek",
                 true,
@@ -27,5 +27,15 @@ public class PaymentService {
                 OffsetDateTime.now().toString(),
                 OffsetDateTime.now().toString(),
                 20);
+    }
+
+    public Card update(int id, CardRequestDTO requestDTO) {
+        return new Card(
+                "Unabolek",
+                false,
+                new Tariff(0.0, 0.1, 20.0),
+                OffsetDateTime.now().toString(),
+                OffsetDateTime.now().toString(),
+                99);
     }
 }
