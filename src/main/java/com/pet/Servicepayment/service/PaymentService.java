@@ -31,4 +31,8 @@ public class PaymentService {
                 "2023-05-16T12:34:50.487412+03:00",
                 20);
     }
+
+    public void update(int id, CardRequestDTO requestDTO) {
+        System.out.println("Do nothing");
+    }
 }

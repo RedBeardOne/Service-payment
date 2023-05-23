@@ -2,6 +2,7 @@ package com.pet.Servicepayment.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -89,4 +90,24 @@ class PayControllerTest {
                 .andExpect(content().json(responseString));
     }
 
+    @Test
+    void shouldReturn204WhenUpdateCard() throws Exception {
+        String updateRequestString = """
+                {
+                    "name": "Valid",
+                    "active": true,
+                    "tariff": {
+                        "issueCost": 2.0,
+                        "serviceCost": 3.0,
+                        "reissueCost": 33.0
+                    }
+                }
+                """;
+
+        mock.perform(MockMvcRequestBuilders.patch("/api/v1/card_template/{id}", 1, updateRequestString)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(updateRequestString))
+                .andExpect(status().isNoContent());
+    }
 }

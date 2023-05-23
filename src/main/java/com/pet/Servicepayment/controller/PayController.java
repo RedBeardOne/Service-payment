@@ -4,6 +4,7 @@ import com.pet.Servicepayment.DTO.CardRequestDTO;
 import com.pet.Servicepayment.model.Card;
 import com.pet.Servicepayment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,5 +32,12 @@ public class PayController {
     @ResponseBody
     public Card getCardById(@PathVariable int id) {
         return paymentService.get(id);
+    }
+
+    @PatchMapping(value = "/api/v1/card_template/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable int id,
+                       @RequestBody CardRequestDTO cardRequestDTO) {
+        paymentService.update(id, cardRequestDTO);
     }
 }
